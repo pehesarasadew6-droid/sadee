@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SADEE VIP</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+/* ================= BODY ================= */
+body{
+    background:#000;
+    overflow:hidden;
+    --main:#00ffc8;
+}
+
+/* ================= CANVAS ================= */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+    background:radial-gradient(circle at center,#05060a 0%,#000 70%);
+}
+
+/* SOFT GLOW */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,255,200,.08),transparent 40%),
+    radial-gradient(circle at 80% 80%,rgba(160,0,255,.08),transparent 40%);
+}
+
+/* ================= INTRO ================= */
+#intro{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+.intro-logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:3px solid var(--main);
+    box-shadow:0 0 25px var(--main);
+    animation:zoom 2s ease;
+}
+
+.intro-text{
+    color:var(--main);
+    margin-top:15px;
+    letter-spacing:3px;
+    text-shadow:0 0 10px var(--main);
+}
+
+@keyframes zoom{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* ================= THEME BUTTONS ================= */
+#themeBox{
+    position:fixed;
+    top:15px;
+    right:15px;
+    display:flex;
+    gap:8px;
+    z-index:1000;
+}
+
+.themeBtn{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid #fff;
+}
+
+/* ================= MAIN ================= */
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1000px;
+}
+
+/* CARD */
+.card{
+    width:320px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+    text-align:center;
+    color:white;
+    border:1px solid var(--main);
+    box-shadow:0 0 25px var(--main);
+    transition:.2s;
+    transform-style:preserve-3d;
+}
+
+/* PROFILE IMAGE */
+.logo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--main);
+    box-shadow:0 0 20px var(--main);
+    margin-bottom:10px;
+}
+
+/* TEXT */
+h1{
+    color:var(--main);
+    text-shadow:0 0 10px var(--main);
+}
+
+p{
+    margin:6px 0;
+    font-size:14px;
+}
+
+/* ================= BUTTONS ================= */
+.btn{
+    display:block;
+    margin-top:12px;
+    padding:12px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    text-align:center;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.whatsapp{
+    background:#25D366;
+    box-shadow:0 0 15px #25D366;
+}
+
+.vip{
+    background:linear-gradient(90deg,#ff00ff,#00ffc8);
+    box-shadow:0 0 15px #ff00ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= COLOR SWITCH ================= -->
+<div id="themeBox">
+    <div class="themeBtn" 
+    style="background:#00ffc8"
+    onclick="setTheme('#00ffc8')"></div>
+
+    <div class="themeBtn"
+    style="background:#ff0033"
+    onclick="setTheme('#ff0033')"></div>
+
+    <div class="themeBtn"
+    style="background:#a000ff"
+    onclick="setTheme('#a000ff')"></div>
+
+    <div class="themeBtn"
+    style="background:#00aaff"
+    onclick="setTheme('#00aaff')"></div>
+
+    <div class="themeBtn"
+    style="background:#ffaa00"
+    onclick="setTheme('#ffaa00')"></div>
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+<canvas id="bg"></canvas>
+
+<!-- ================= INTRO ================= -->
+<div id="intro">
+    <img class="intro-logo"
+    src="https://i.imgur.com/2DhmtJ4.png">
+
+    <div class="intro-text">
+        VIP SITE LOADING...
+    </div>
+</div>
+
+<!-- ================= PROFILE ================= -->
+<div class="container">
+
+<div class="card" id="card">
+
+    <img class="logo"
+    src="https://i.imgur.com/2DhmtJ4.png">
+
+    <h1>SADEW DT:🌝</h1>
+
+    <p>👑 Owner : SADEW PEHESARA</p>
+    <p>📍 LOCATION  : Sri Lanka 🇱🇰</p>
+    <p>🎮 Status : ⚔️ RUSH FIRST THINK LATER ⚔️ 🔥</p>
+    <!-- WHATSAPP -->
+    <a class="btn whatsapp"
+    href="https://wa.me/94768472404">
+    💬 WhatsApp
+    </a>
+
+    <!-- VIP -->
+    <a class="btn vip"
+    href="https://whatsapp.com/channel/0029VbCKwBAKWEKpjIUB9u0f">
+    ⚡ JOIN VIP
+    </a>
+
+</div>
+</div>
+
+<script>
+
+/* ================= INTRO ================= */
+setTimeout(()=>{
+    document.getElementById("intro").style.display="none";
+},3000);
+
+/* ================= THEME SWITCH ================= */
+function setTheme(color){
+    document.body.style.setProperty("--main",color);
+}
+
+/* ================= 3D CARD ================= */
+const card=document.getElementById("card");
+
+document.addEventListener("mousemove",(e)=>{
+    let x=(window.innerWidth/2-e.pageX)/25;
+    let y=(window.innerHeight/2-e.pageY)/25;
+
+    card.style.transform=
+    `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
+/* ================= LIGHTNING BG ================= */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+function resize(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+}
+resize();
+
+window.addEventListener("resize",resize);
+
+let bolts=[];
+
+function createBolt(){
+    return{
+        x:Math.random()*canvas.width,
+        y:0,
+        len:Math.random()*180+100,
+        speed:Math.random()*3+2
+    };
+}
+
+for(let i=0;i<18;i++){
+    bolts.push(createBolt());
+}
+
+function animate(){
+
+    ctx.fillStyle="rgba(0,0,0,0.25)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    for(let b of bolts){
+
+        let color=
+        getComputedStyle(document.body)
+        .getPropertyValue("--main");
+
+        ctx.strokeStyle=color;
+        ctx.shadowBlur=20;
+        ctx.shadowColor=color;
+
+        ctx.beginPath();
+        ctx.moveTo(b.x,b.y);
+        ctx.lineTo(b.x,b.y+b.len);
+        ctx.stroke();
+
+        b.y += b.speed;
+
+        if(b.y > canvas.height){
+            b.y = 0;
+            b.x = Math.random()*canvas.width;
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
